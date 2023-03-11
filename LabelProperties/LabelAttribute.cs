@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ru.mofrison.unity3d.UnityExtended
+namespace UnityExtended
 {
     /// <summary>
     /// Attribute for custom label

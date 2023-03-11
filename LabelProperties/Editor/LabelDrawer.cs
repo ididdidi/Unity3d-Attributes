@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace ru.mofrison.unity3d.UnityExtended
+namespace UnityExtended
 {
 	/// <summary>
 	/// Drawer for the LabelAttribute attribute.

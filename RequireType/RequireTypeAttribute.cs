@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ru.mofrison.unity3d.UnityExtended
+namespace UnityExtended
 {
     /// <summary>
     /// An attribute to display in the field inspector with a <see cref="GameObject"/> that implements the provided interface.
