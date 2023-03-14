@@ -15,9 +15,6 @@ namespace UnityExtended
         /// Requiring implementation of the <see cref="RequireTypeAttribute"/> interface.
         /// </summary>
         /// <param name="type">Interface type.</param>
-        public RequireTypeAttribute(System.Type type)
-        {
-            this.RequiredType = type;
-        }
+        public RequireTypeAttribute(System.Type type) => this.RequiredType = type;
     }
 }

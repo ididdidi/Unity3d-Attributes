@@ -18,14 +18,7 @@ namespace UnityExtended
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             // Check if this is reference type property
-            if (property.propertyType == SerializedPropertyType.ObjectReference)
-            {
-                var requiredType = ((RequireTypeAttribute)attribute).RequiredType;
-                ChecDragAndDrops(position, requiredType);
-                DrawObjectField(position, property, requiredType, label);
-                ChecValues(property, requiredType);
-            }
-            else
+            if (property.propertyType != SerializedPropertyType.ObjectReference)
             {
                 // If field is not reference, show error message.            
                 var style = new GUIStyle(EditorStyles.objectField);
@@ -33,7 +26,13 @@ namespace UnityExtended
 
                 // Display label with error message
                 EditorGUI.LabelField(position, label, new GUIContent($"{ property.propertyType } is not a reference type"), style);
+                return;
             }
+
+            var requiredType = ((RequireTypeAttribute)attribute).RequiredType;
+            ChecDragAndDrops(position, requiredType);
+            DrawObjectField(position, property, requiredType, label);
+            ChecValues(property, requiredType);
         }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace UnityExtended
         /// <param name="label">Displaу field label</param>
         private void DrawObjectField(Rect position, SerializedProperty property, System.Type requiredType, GUIContent label)
         {
-            // Start blocking change checks
+            // Start change checks
             EditorGUI.BeginChangeCheck();
             // Display a ObjectField
             EditorGUI.ObjectField(position, property, label);
